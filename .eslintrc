@@ -1,0 +1,81 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-use-before-define": 0,
+        "@typescript-eslint/no-useless-constructor": "error"
+      }
+    },
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "func-names":"off"
+      }
+    },
+    {
+      "files": ["**/*.stories.*", "**/*.spec.*", "src/setupTests.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
+  "rules": {
+    "camelcase": "off",
+    "default-param-last": "off",
+    "no-use-before-define": "off",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-shadow": "off",
+    "no-useless-constructor": "off",
+    "no-param-reassign": "off",
+    "import/no-mutable-exports": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": ["error", {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never",
+      "json": "always"
+    }],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": { "multiline": true, "consistent": true },
+      "ObjectPattern": { "multiline": true, "consistent": true },
+      "ImportDeclaration": { "multiline": true, "consistent": true },
+      "ExportDeclaration": { "multiline": true, "consistent": true }
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["."]
+      }
+    }
+  }
+}
